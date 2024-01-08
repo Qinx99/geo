@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <title>Dashboard</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <script>
+    var themeurl = "http://geometrydashonline.io/themes/adminthemegame/";
+    function get_format_url(controller, action) {
+        var urlformat = "/admin.php/:c:.con/:a:";
+        urlformat = urlformat.replace(':c:', controller);
+        return urlformat.replace(':a:', action);
+    }
+</script>
+  <link href="https://geometrydashonline.io/themes/adminthemegame/resources/js/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="https://geometrydashonline.io/themes/adminthemegame/resources/css/stylesheet.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="https://geometrydashonline.io/themes/adminthemegame/resources/js/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="https://geometrydashonline.io/themes/adminthemegame/resources/js/bootstrap-select/bootstrap-select.css" type="text/css" rel="stylesheet" media="screen">
+  <link href="https://geometrydashonline.io/mod/adminjs/data/jquery/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" media="screen">
+  <script src="https://geometrydashonline.io/mod/adminjs/data/jquery/jquery-1.11.1.js"></script>
+  <script src="https://geometrydashonline.io/mod/adminjs/data/jquery/jquery-ui-1.10.3.js"></script>
+  <script src="https://geometrydashonline.io/themes/adminthemegame/resources/js/jquery.validate.js"></script>
+  <script src="https://geometrydashonline.io/themes/adminthemegame/resources/js/bootstrap/less-1.7.4.min.js"></script>
+  <script src="https://geometrydashonline.io/themes/adminthemegame/resources/js/jquery.form.min.js"></script> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <div class="row"> 
+    <div class="col-md-4 col-md-offset-4"> 
+     <div class="login-panel panel panel-default"> 
+      <div class="panel-heading"> 
+       <h3 class="panel-title">Please Sign In</h3> 
+      </div> 
+      <div class="panel-body"> 
+       <form id="login_form" action="/admin.php/auth.con/login" method="post"> 
+        <fieldset> 
+         <div class="form-group"> 
+          <input class="form-control" placeholder="E-mail" name="username" type="text"> 
+         </div> 
+         <div class="form-group"> 
+          <input class="form-control" placeholder="Password" name="password" type="password" value=""> 
+         </div> 
+         <div class="checkbox"> <label> <input name="remember" type="checkbox" value="Remember Me">Remember Me </label> 
+         </div> <!-- Change this to a button or input when using this as a form --> 
+         <input type="submit" class="btn btn-lg btn-success btn-block" value="Login"> 
+        </fieldset> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script src="js/bootstrap.js"></script> 
+  <script type="text/javascript">
+            $("#login_form").validate({
+                rules: {
+                    "login_name": {
+                        required: true
+                    },
+                    "password": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "login_name": {
+                        required: "Mời nhập tên đăng nhập"
+                    },
+                    "password": {
+                        required: "Mời nhập mật khẩu"
+                    }
+                },
+                submitHandler: function (form) {
+
+                    if (extraValid() == true)
+                    {
+                        if (form.data('submitted') === true) {
+                            // Previously submitted - don't submit again
+                            e.preventDefault();
+                        } else {
+                            form.data('submitted', true);
+                            form.submit();
+                        }
+                    }
+                }
+            });
+            function extraValid()
+            {
+
+                return true;
+            }
+        </script>  
+ </body>
+</html>
